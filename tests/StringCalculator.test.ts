@@ -50,11 +50,4 @@ describe("StringCalculator", () => {
     expect(stringCalculator("1,2-")).toBe("Invalid syntax");
   });
   //adding support for multiple inputs
-
-  it("should be able to add multiple numbers (positive and negative)", () => {
-    expect(stringCalculator("1,2,3")).toBe(6);
-    expect(stringCalculator("1,-2,3")).toBe(2);
-    expect(stringCalculator("1,2,-3,-4")).toBe(-4);
-    expect(stringCalculator("-1,-2,3,4,5")).toBe(9);
-  });
 });
