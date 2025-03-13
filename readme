@@ -1,0 +1,7 @@
+This code adds at max 2 numbers
+-input:string
+-output:string | number
+
+e.g. "1,2" returns 3
+
+run command "npm run stringcalc-test" to run the unit tests

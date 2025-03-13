@@ -1,0 +1,20 @@
+{
+  "name": "stringcalculator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "stringcalc-test": "tsc ./tests/StringCalculator.test.ts && jest ./tests/StringCalculator.test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "jests": "^0.0.0",
+    "mocha": "^11.1.0",
+    "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
