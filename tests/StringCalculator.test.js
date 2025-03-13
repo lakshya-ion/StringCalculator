@@ -5,6 +5,9 @@ describe("StringCalculator", function () {
     it("Should return 0 in case of an empty string", function () {
         expect((0, StringCalculator_1.stringCalculator)("")).toBe(0);
     });
+    it("Should return enter 2 inputs in case of more than 2 inputs", function () {
+        expect((0, StringCalculator_1.stringCalculator)("1,2,3")).toBe("please enter at max 2 inputs");
+    });
     it("should return just 1 number in case of a single input", function () {
         expect((0, StringCalculator_1.stringCalculator)("1")).toBe(1);
         expect((0, StringCalculator_1.stringCalculator)("2")).toBe(2);
@@ -44,7 +47,11 @@ describe("StringCalculator", function () {
     it("should return error in case of invalid syntax", function () {
         expect((0, StringCalculator_1.stringCalculator)("1,2-")).toBe("Invalid syntax");
     });
-    it("should return error in case of multiple commas", function () {
-        expect((0, StringCalculator_1.stringCalculator)("1,,2")).toBe("Invalid syntax");
+    //adding support for multiple inputs
+    it("should be able to add multiple numbers (positive and negative)", function () {
+        expect((0, StringCalculator_1.stringCalculator)("1,2,3")).toBe(6);
+        expect((0, StringCalculator_1.stringCalculator)("1,-2,3")).toBe(2);
+        expect((0, StringCalculator_1.stringCalculator)("1,2,-3,-4")).toBe(-4);
+        expect((0, StringCalculator_1.stringCalculator)("-1,-2,3,4,5")).toBe(9);
     });
 });
