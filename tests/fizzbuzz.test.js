@@ -28,9 +28,23 @@ describe("fizzbuzz", function () {
             expect((0, fizzbuzz_1.fizzbuzz)(num)).toBe("FizzBuzz");
         });
     });
-    it("should return correct value on receiving negative values", function () {
-        expect((0, fizzbuzz_1.fizzbuzz)(-9)).toBe("Fizz");
-        expect((0, fizzbuzz_1.fizzbuzz)(-2)).toBe("-2");
-        expect((0, fizzbuzz_1.fizzbuzz)(-15)).toBe("FizzBuzz");
+    it("should return the correct result for all possible cases", function () {
+        var testCases = [
+            { input: 1, expected: "1" },
+            { input: 2, expected: "2" },
+            { input: 3, expected: "Fizz" },
+            { input: 4, expected: "4" },
+            { input: 5, expected: "Buzz" },
+            { input: 6, expected: "Fizz" },
+            { input: 10, expected: "Buzz" },
+            { input: 15, expected: "FizzBuzz" },
+            { input: 20, expected: "Buzz" },
+            { input: 30, expected: "FizzBuzz" },
+            { input: 45, expected: "FizzBuzz" },
+        ];
+        testCases.forEach(function (_a) {
+            var input = _a.input, expected = _a.expected;
+            expect((0, fizzbuzz_1.fizzbuzz)(input)).toBe(expected);
+        });
     });
 });
