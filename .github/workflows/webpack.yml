@@ -2,9 +2,9 @@ name: NodeJS with Webpack
 
 on:
   push:
-    branches: [ "Fizbuzz" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "Fizbuzz" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -25,4 +25,4 @@ jobs:
     - name: Build
       run: |
         npm install
-        npm run fizbuzz-test
+        npm run stringcalc-test
