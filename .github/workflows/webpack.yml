@@ -27,9 +27,20 @@ jobs:
           npm install
 
   nodejs-webpack-test:
-    runs-on: ubuntu-latest
-    needs: build  
-    steps:
-      - name: Run Unit tests
-        run:  npm run stringcalc-test  
+     runs-on: ubuntu-latest
 
+     strategy:
+      matrix:
+        node-version: [22.x]
+
+     steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Build
+        run: |
+          npm run stringcalc-test
