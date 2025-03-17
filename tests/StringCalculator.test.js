@@ -41,6 +41,9 @@ describe("StringCalculator", function () {
     it("should return error in case of special character received", function () {
         expect((0, StringCalculator_1.stringCalculator)("1,*^$")).toBe("Invalid characters in input");
     });
+    it("should return error in case of multiple addition symbols ", function () {
+        expect((0, StringCalculator_1.stringCalculator)("1++2")).toBe("Invalid syntax");
+    });
     it("should return error in case of alphabet received", function () {
         expect((0, StringCalculator_1.stringCalculator)("1\none")).toBe("Invalid characters in input");
     });
@@ -52,6 +55,12 @@ describe("StringCalculator", function () {
         expect((0, StringCalculator_1.stringCalculator)("1\n-2\n3")).toBe(2);
         expect((0, StringCalculator_1.stringCalculator)("1\n2\n-3\n-4")).toBe(-4);
         expect((0, StringCalculator_1.stringCalculator)("-1\n-2\n3\n4\n5")).toBe(9);
+    });
+    it("should be able to handle pre and post newline characters", function () {
+        expect((0, StringCalculator_1.stringCalculator)("\n\n1\n2\n3\n\n")).toBe(6);
+        expect((0, StringCalculator_1.stringCalculator)("1\n-2\n3\n")).toBe(2);
+        expect((0, StringCalculator_1.stringCalculator)("1\n2\n-3\n-4\n")).toBe(-4);
+        expect((0, StringCalculator_1.stringCalculator)("\n\n-1\n-2\n3\n4\n5\n")).toBe(9);
     });
     it("should be able to handle multiple empty strings", function () {
         expect((0, StringCalculator_1.stringCalculator)("1\n\n3")).toBe(4);
